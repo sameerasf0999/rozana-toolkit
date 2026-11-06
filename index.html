@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#176b57">
+  <meta name="description" content="Rozana Toolkit — simple daily tools for tasks, notes, shopping and calculations.">
+  <title>روزانہ ٹول کٹ | Rozana Toolkit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">ر</span><span><strong>روزانہ ٹول کٹ</strong><small>Rozana Toolkit</small></span></a>
+    <button id="languageBtn" class="language-btn" type="button">English</button>
+  </header>
+
+  <main class="wrap">
+    <section class="welcome">
+      <p class="eyebrow" data-en="YOUR SIMPLE DAILY COMPANION" data-ur="آپ کے روزمرہ کاموں کا آسان ساتھی">آپ کے روزمرہ کاموں کا آسان ساتھی</p>
+      <h1 data-en="A little more organized, every day." data-ur="ہر دن، تھوڑا زیادہ منظم۔">ہر دن، تھوڑا زیادہ منظم۔</h1>
+      <p data-en="Keep everyday tasks and quick tools together in one place." data-ur="اپنے روزمرہ کام اور آسان ٹولز ایک ہی جگہ رکھیں۔">اپنے روزمرہ کام اور آسان ٹولز ایک ہی جگہ رکھیں۔</p>
+    </section>
+
+    <section class="clock-card" aria-live="polite">
+      <div><span class="muted" data-en="TODAY" data-ur="آج">آج</span><strong id="todayDate">—</strong></div>
+      <div class="clock"><span class="muted" data-en="LOCAL TIME" data-ur="مقامی وقت">مقامی وقت</span><strong id="clock">--:--:--</strong></div>
+    </section>
+
+    <nav class="tabs" aria-label="Tools">
+      <button class="tab active" data-tab="tasks" data-en="Tasks" data-ur="کام">کام</button>
+      <button class="tab" data-tab="notes" data-en="Notes" data-ur="نوٹس">نوٹس</button>
+      <button class="tab" data-tab="shopping" data-en="Shopping" data-ur="خریداری">خریداری</button>
+      <button class="tab" data-tab="calculator" data-en="Calculator" data-ur="کیلکولیٹر">کیلکولیٹر</button>
+    </nav>
+
+    <section id="tasks" class="panel active">
+      <div class="panel-heading"><div><p class="eyebrow" data-en="STAY ON TRACK" data-ur="اپنے کام یاد رکھیں">اپنے کام یاد رکھیں</p><h2 data-en="My tasks" data-ur="میرے کام">میرے کام</h2></div><span id="taskCount" class="count">0</span></div>
+      <form id="taskForm" class="entry"><input id="taskInput" required maxlength="120" data-en-placeholder="Add a task…" data-ur-placeholder="نیا کام لکھیں…" placeholder="نیا کام لکھیں…"><button class="primary" data-en="Add" data-ur="شامل کریں">شامل کریں</button></form>
+      <ul id="taskList" class="items"></ul>
+      <p id="taskEmpty" class="empty" data-en="No tasks yet. Add your first one above." data-ur="ابھی کوئی کام نہیں۔ اوپر اپنا پہلا کام لکھیں۔">ابھی کوئی کام نہیں۔ اوپر اپنا پہلا کام لکھیں۔</p>
+    </section>
+
+    <section id="notes" class="panel">
+      <div class="panel-heading"><div><p class="eyebrow" data-en="SAVE A THOUGHT" data-ur="اپنے خیالات محفوظ کریں">اپنے خیالات محفوظ کریں</p><h2 data-en="Quick notes" data-ur="فوری نوٹس">فوری نوٹس</h2></div></div>
+      <textarea id="noteInput" rows="7" maxlength="5000" data-en-placeholder="Write a reminder or idea…" data-ur-placeholder="کوئی خیال یا یاددہانی لکھیں…" placeholder="کوئی خیال یا یاددہانی لکھیں…"></textarea>
+      <div class="save-row"><span id="noteStatus" class="muted" data-en="Saved on this device" data-ur="اسی ڈیوائس پر محفوظ">اسی ڈیوائس پر محفوظ</span><button id="clearNote" class="secondary" type="button" data-en="Clear note" data-ur="نوٹ صاف کریں">نوٹ صاف کریں</button></div>
+    </section>
+
+    <section id="shopping" class="panel">
+      <div class="panel-heading"><div><p class="eyebrow" data-en="DON'T FORGET A THING" data-ur="کچھ بھولیں نہیں">کچھ بھولیں نہیں</p><h2 data-en="Shopping list" data-ur="خریداری کی فہرست">خریداری کی فہرست</h2></div><span id="shoppingCount" class="count">0</span></div>
+      <form id="shoppingForm" class="entry"><input id="shoppingInput" required maxlength="100" data-en-placeholder="Add an item…" data-ur-placeholder="سامان کا نام لکھیں…" placeholder="سامان کا نام لکھیں…"><button class="primary" data-en="Add" data-ur="شامل کریں">شامل کریں</button></form>
+      <ul id="shoppingList" class="items"></ul>
+      <p id="shoppingEmpty" class="empty" data-en="Your shopping list is empty." data-ur="آپ کی خریداری کی فہرست خالی ہے۔">آپ کی خریداری کی فہرست خالی ہے۔</p>
+    </section>
+
+    <section id="calculator" class="panel">
+      <div class="panel-heading"><div><p class="eyebrow" data-en="QUICK MATH" data-ur="آسان حساب">آسان حساب</p><h2 data-en="Calculator" data-ur="کیلکولیٹر">کیلکولیٹر</h2></div></div>
+      <div class="calculator">
+        <output id="calcDisplay" aria-live="polite">0</output>
+        <div class="keys">
+          <button data-key="clear" class="utility">AC</button><button data-key="back" class="utility">⌫</button><button data-key="/" class="operator">÷</button><button data-key="*" class="operator">×</button>
+          <button data-key="7">7</button><button data-key="8">8</button><button data-key="9">9</button><button data-key="-" class="operator">−</button>
+          <button data-key="4">4</button><button data-key="5">5</button><button data-key="6">6</button><button data-key="+" class="operator">+</button>
+          <button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button><button data-key="=" class="equals">=</button>
+          <button data-key="0" class="zero">0</button><button data-key=".">.</button>
+        </div>
+        <p class="muted" data-en="For simple arithmetic only." data-ur="صرف عام حساب کے لیے۔">صرف عام حساب کے لیے۔</p>
+      </div>
+    </section>
+
+    <footer><span>Rozana Toolkit</span><span data-en="Your data stays in this browser." data-ur="آپ کا ڈیٹا اسی براؤزر میں رہتا ہے۔">آپ کا ڈیٹا اسی براؤزر میں رہتا ہے۔</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
